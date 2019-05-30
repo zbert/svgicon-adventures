@@ -16,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "svg-sprite-generator": "0.0.7"
+    "svg-sprite-generator": "0.0.7",
+    "svg4everybody": "2.1.9"
   },
   "devDependencies": {
     "chokidar-cli": "1.2.2",
