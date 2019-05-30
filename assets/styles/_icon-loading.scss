@@ -1,0 +1,96 @@
+/* Variables */
+$icomoon-font-path: "./../icons/" !default;
+
+$ico-icon-name: "icomoon";
+
+$icomoon-hash: 'ftmyy5';
+
+//sass mappings
+$icons: (
+  usacanada: "\e910",
+  australia: "\e903",
+  europe: "\e90b",
+  middleeast: "\e90c",
+  latinamerica: "\e90d",
+  asia: "\e90e",
+  africa: "\e90f",
+  envelope: "\e902",
+  arrow-upright: "\e0b2",
+  arrow-downleft: "\e0b5",
+  chevron-up: "\e5ce",
+  chevron-down: "\e5cf",
+  share: "\e901",
+  external-link: "\e91e",
+  doc: "\e91f",
+  vcard-path1: "\e912",
+  vcard-path2: "\e913",
+  vcard-path3: "\e914",
+  vcard-path4: "\e915",
+  vcard-path5: "\e916",
+  linkedin-path1: "\e917",
+  linkedin-path2: "\e918",
+  linkedin-path3: "\e919",
+  lightbulb: "\e904",
+  building: "\e908",
+  calendar: "\e909",
+  note: "\e90a",
+  play: "\e91d",
+  pause: "\e034",
+  triangle: "\e900",
+  pdf: "\e905",
+  triangle-down: "\e906",
+  search: "\e907",
+  close: "\f00c",
+  plus: "\f01b",
+  minus: "\f021",
+  chev-up: "\f090",
+  chev-down: "\f091",
+  chev-left: "\f092",
+  chev-right: "\f093",
+  arrow-left: "\f0aa",
+  arrow-right: "\f0ab",
+  instagram: "\e91c",
+  twitter: "\e911",
+  linkedin-small: "\e91a",
+  facebook: "\e91b"
+);
+
+
+//Mixin to load icon font
+@mixin icon-face-family($font-family, $file-path, $font-weight:normal, $font-style: normal) {
+  @font-face {
+  	font-family: $font-family;
+  	src:  url('#{$file-path}#{$font-family}.ttf') format('truetype'),
+					url('#{$file-path}#{$font-family}.woff') format('woff'),
+					url('#{$file-path}#{$font-family}.svg##{$file-path}') format('svg');
+		font-weight: $font-weight;
+		font-style: $font-style;
+  }
+}
+
+// Load Icon
+@include icon-face-family($ico-icon-name, $icomoon-font-path);
+
+//attribute selector of class name for icons
+[class^="icon-"], [class*=" icon-"]  {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: $ico-icon-name !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+//Generate Class for each icon based on sass mapping object
+@each $name, $icon in $icons {
+  .icon-#{$name}:before {
+    content: $icon;
+  }
+}
