@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate-svg": "svg-sprite-generate -d svgs -o public/sprite.svg",
+    "build:svg": "gulp svg",
     "server": "parcel index.html",
-    "watch": "chokidar 'svgs' -c 'npm run generate-svg'",
+    "watch": "chokidar 'svgs' -c 'gulp svg'",
     "dev": "npm run watch & npm run server",
     "build": "parcel build index.html"
   },
@@ -15,11 +15,19 @@
   },
   "author": "",
   "license": "ISC",
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
+  },
   "dependencies": {
+    "gulp": "4.0.2",
+    "gulp-svg-sprite": "1.5.0",
     "svg-sprite-generator": "0.0.7",
-    "svg4everybody": "2.1.9"
+    "svg4everybody": "2.1.9",
+    "vue": "2.6.10"
   },
   "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@vue/babel-preset-jsx": "1.0.0",
     "chokidar-cli": "1.2.2",
     "parcel-bundler": "1.12.3",
     "sass": "1.20.1"
